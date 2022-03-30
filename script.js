@@ -5,7 +5,7 @@ window.addEventListener("load", function () {
     let form = document.querySelector("form")
     let list = document.querySelector("#faultyItems > ol");
     list.style.visibility = "hidden";
-    /*
+    
         form.addEventListener("submit", function (event) {
     
             let pilot = document.querySelector("input=[name='pilotName']").value;
@@ -14,8 +14,8 @@ window.addEventListener("load", function () {
             let cargoLevel = document.querySelector("input=[name='cargoMass']").value;
             list.style.visibility = "hidden";
             formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel);
-            event.preventDefault();   
-         });*/
+            
+         });
 
     let listedPlanets;
     // Set listedPlanetsResponse equal to the value returned by calling myFetch()
@@ -30,9 +30,8 @@ window.addEventListener("load", function () {
         // addDestinationInfo(document, planet.name, planet.diameter, planet.star, planet.distance, planet.moons, planet.image)
         // Below this comment call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination.
     })
-    let formData = document.getElementById("formSubmit");
+ /*   let formData = document.getElementById("formSubmit");
     formData.addEventListener("click", function (event) {
-        event.preventDefault();
         let pilot = document.querySelector("input=[name='pilotName']").value;
         let copilot = document.querySelector("input=[name='copilotName']").value;
         let fuelLevel = document.querySelector("input=[name='fuelLevel']").value;
@@ -40,5 +39,5 @@ window.addEventListener("load", function () {
         let list = document.querySelector("faultyItems");
         formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel);
     })
-
+*/
 });

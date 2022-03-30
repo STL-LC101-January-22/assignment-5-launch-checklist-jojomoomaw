@@ -42,14 +42,14 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     let launchStatusText = document.getElementById("launchStatus");
     let launchStatusCss = document.querySelector("#launchStatusCheck");
 
-    let validCheck 
-
     if (validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel) === "Empty" || validateInput(cargoLevel)) {
         window.alert("All inputs are required: Pilot/Copilot should be letters, Fuel/Cargo should be numbers");
     } else if (validateInput(pilot) === "Is a Number" || validateInput(copilot) === "Is a Number") {
         window.alert("Invalid input: Pilot/copilot should be alphabetic only");
+        event.preventDefault();
     } else if (validateInput(fuelLevel) === "Not a Number" || validateInput(cargoLevel) === "Not a Number") {
         window.alert("Invalid input: Fuel/cargo should be numeric only");
+        event.preventDefault();
     } else {
         if (Number.fuelLevel.value < 10000) {
             // change faultyItems to visibile with updated fuel status (too low). h2 lauchStatus=notReady color=red
