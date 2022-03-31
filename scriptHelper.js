@@ -2,17 +2,19 @@ require('isomorphic-fetch');
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
     // Here is the HTML formatting for our mission target div.
-    /*
+    let target = document.getElementById("missionTarget");
+    target.innerHTML = `
+    
                  <h2>Mission Destination</h2>
                  <ol>
-                     <li>Name: </li>
-                     <li>Diameter: </li>
+                     <li>Name: ${name} </li>
+                     <li>Diameter: ${diameter} </li>
                      <li>Star: ${star}</li>
-                     <li>Distance from Earth: </li>
-                     <li>Number of Moons: </li>
+                     <li>Distance from Earth: ${distance} </li>
+                     <li>Number of Moons: ${moons} </li>
                  </ol>
-                 <img src="">
-    */
+                 <img src="${imageUrl}"> `
+
 }
 
 function validateInput(testInput) {
@@ -42,14 +44,14 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     let launchStatusText = document.getElementById("launchStatus");
     let launchStatusCss = document.querySelector("#launchStatusCheck");
 
+
+
     if (validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel) === "Empty" || validateInput(cargoLevel)) {
         window.alert("All inputs are required: Pilot/Copilot should be letters, Fuel/Cargo should be numbers");
     } else if (validateInput(pilot) === "Is a Number" || validateInput(copilot) === "Is a Number") {
         window.alert("Invalid input: Pilot/copilot should be alphabetic only");
-        event.preventDefault();
     } else if (validateInput(fuelLevel) === "Not a Number" || validateInput(cargoLevel) === "Not a Number") {
         window.alert("Invalid input: Fuel/cargo should be numeric only");
-        event.preventDefault();
     } else {
         if (Number.fuelLevel.value < 10000) {
             // change faultyItems to visibile with updated fuel status (too low). h2 lauchStatus=notReady color=red
@@ -88,6 +90,9 @@ async function myFetch() {
 }
 
 function pickPlanet(planets) {
+    let n = [Math.floor(Math.random() * planets.length)];
+    return planets[n];
+
 }
 
 module.exports.addDestinationInfo = addDestinationInfo;
